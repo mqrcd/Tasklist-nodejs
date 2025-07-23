@@ -26,7 +26,7 @@ app.post("/tasks", async (req, res) => {
     const task = await Task.create(req.body);
     res.status(201).json(task);
   } catch (error) {
-    console.error("Erreur création tâche :", error); // 🛠️ log utile ici
+    console.error("Erreur création tâche :", error);
     res.status(500).json({ message: "Erreur serveur", error });
   }
   // const task = await Task.create(req.body);
