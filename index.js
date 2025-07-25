@@ -116,4 +116,14 @@ app.get("/users/auth", async (req, res) => {
   }
 });
 
+app.post("/users", async (req, res) => {
+  try {
+    const task = await User.create(req.body);
+    res.status(201).json(task);
+  } catch (error) {
+    console.error("Erreur création de user :", error);
+    res.status(500).json({ message: "Erreur serveur", error });
+  }
+});
+
 app.listen(3000, () => console.log("API lancée sur http://localhost:3000"));
